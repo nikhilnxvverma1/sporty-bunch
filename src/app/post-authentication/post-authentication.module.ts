@@ -6,15 +6,20 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-
+import { PostAuthenticationRoutingModule } from './post-authentication-routing.module';
+import { TheirProfileComponent } from './their-profile/their-profile.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { EventComponent } from './event/event.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
     CommonModule,
 	BrowserModule,
 	FormsModule,
+	PostAuthenticationRoutingModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [HeaderComponent, HomeComponent, DashboardComponent, MyProfileComponent]
+  declarations: [HeaderComponent, HomeComponent, DashboardComponent, MyProfileComponent, TheirProfileComponent, CreateEventComponent, EventComponent, SearchComponent]
 })
 export class PostAuthenticationModule { }
