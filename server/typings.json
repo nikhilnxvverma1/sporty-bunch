@@ -5,6 +5,7 @@
     "winston": "registry:dt/winston#2.2.0+20170106144044"
   },
   "globalDependencies": {
+    "bingmaps": "registry:dt/bingmaps#7.0.0+20161128184045",
     "orientjs": "registry:dt/orientjs#2.1.0+20161130235936"
   }
 }

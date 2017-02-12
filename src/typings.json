@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "bingmaps": "registry:dt/bingmaps#7.0.0+20161128184045"
+  }
+}
