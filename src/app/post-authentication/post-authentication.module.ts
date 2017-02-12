@@ -11,6 +11,7 @@ import { TheirProfileComponent } from './their-profile/their-profile.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EventComponent } from './event/event.component';
 import { SearchComponent } from './search/search.component';
+import { UserService } from '../helpers/services/user.service';
 
 @NgModule({
   imports: [
@@ -18,8 +19,9 @@ import { SearchComponent } from './search/search.component';
 	BrowserModule,
 	FormsModule,
 	PostAuthenticationRoutingModule
-  ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [HeaderComponent, HomeComponent, DashboardComponent, MyProfileComponent, TheirProfileComponent, CreateEventComponent, EventComponent, SearchComponent]
+	],
+	schemas:[CUSTOM_ELEMENTS_SCHEMA],
+	declarations: [HeaderComponent, HomeComponent, DashboardComponent, MyProfileComponent, TheirProfileComponent, CreateEventComponent, EventComponent, SearchComponent],
+	providers:[]
 })
 export class PostAuthenticationModule { }

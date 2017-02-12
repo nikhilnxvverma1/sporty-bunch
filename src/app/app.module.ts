@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { UserService } from './helpers/services/user.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 	AppRoutingModule,
 	PostAuthenticationModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

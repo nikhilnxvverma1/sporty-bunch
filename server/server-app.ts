@@ -28,6 +28,11 @@ export class ServerApp {
 
 	private configureAPIRoutes(){
 
+		//login authentication
+		this.app.post('/api/post/empty', (req:express.Request, res:express.Response) => {
+			winston.debug("empty post request");
+			res.send("true");
+		});
 
 	}
 
