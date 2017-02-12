@@ -5,6 +5,7 @@ import { Comment } from './comment';
 import { SportType } from './sport-type';
 
 export class GameEvent{
+	creator:User;
 	name:string;
 	/** Identifies the sport, could be 'others' (generic case) */
 	sportType:SportType;
