@@ -28,9 +28,27 @@ export class ServerApp {
 
 	private configureAPIRoutes(){
 
-		//login authentication
+		//dummy empty post routes
 		this.app.post('/api/post/empty', (req:express.Request, res:express.Response) => {
 			winston.debug("empty post request");
+			res.send("true");
+		});
+
+		//dummy empty get routes
+		this.app.get('/api/get/empty', (req:express.Request, res:express.Response) => {
+			winston.debug("empty get request");
+			res.send("true");
+		});
+
+		//dummy empty put routes
+		this.app.put('/api/put/empty', (req:express.Request, res:express.Response) => {
+			winston.debug("empty put request");
+			res.send("true");
+		});
+
+		//dummy empty delete routes
+		this.app.delete('/api/delete/empty', (req:express.Request, res:express.Response) => {
+			winston.debug("empty delete request");
 			res.send("true");
 		});
 

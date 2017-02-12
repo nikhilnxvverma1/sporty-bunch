@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UserService } from './helpers/services/user.service';
+import { EventService } from './helpers/services/event.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { UserService } from './helpers/services/user.service';
 	AppRoutingModule,
 	PostAuthenticationModule
   ],
-  providers: [UserService],
+  providers: [UserService,Event],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
