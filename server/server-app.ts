@@ -9,22 +9,20 @@ import { EventBackend } from './event.backend';
 import { SchemaBackend } from './schema.backend';
 
 export class ServerApp {
-    
+
 	private app: express.Application;
 	private db:ojs.Db;
 	private userBackend:UserBackend;
 	private eventBackend:EventBackend;
-    private schemaBackend:SchemaBackend;
 
 	constructor(db?:ojs.Db) {
 		this.app = express();
 		this.db=db;
 		this.userBackend=new UserBackend(this.db);
 		this.eventBackend=new EventBackend(this.db);
-		this.schemaBackend=new SchemaBackend(this.db);
 	}
-    
-    public setRoutes() {        //the order matters here
+
+	public setRoutes() {        //the order matters here
 
 		this.configureAPIRoutes();
 		
@@ -87,23 +85,8 @@ export class ServerApp {
 
 	}
 
-    public start() {//this method is called after setRoutes()
+	public start() {//this method should be called after setRoutes()
 
-		// this.schemaBackend.dropDatabaseSchema().then((v:any)=>{
-		// 	// this.ensureDatabaseAndThenStartServer();
-		// 	this.startServer();
-		// });
-		this.ensureDatabaseAndThenStartServer();
-	}
-
-	private ensureDatabaseAndThenStartServer(){
-		this.schemaBackend.ensureDatabaseSchema()
-			.then((lastClassCreated:ojs.Class)=>{
-				this.startServer();
-		});
-	}
-
-	private startServer(){
 		//normalize ports by environment variables        
 		let port=process.env.PORT_SANITY||3000;
 		
@@ -113,13 +96,13 @@ export class ServerApp {
 		});
 	}
 
-    private _homePage(req: express.Request, res: express.Response) {
+	private _homePage(req: express.Request, res: express.Response) {//single page application
 
 		let pathToIndexPage:string;
 		pathToIndexPage=path.join(__dirname,'../','dist/','index.html'); //amongst the main folders
 		winston.log('info',"Server refreshed index file: "+pathToIndexPage);
-        res.sendFile(pathToIndexPage);
-    }
+		res.sendFile(pathToIndexPage);
+	}
 }
 
 /**
