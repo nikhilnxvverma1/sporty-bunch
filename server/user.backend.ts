@@ -39,8 +39,8 @@ export class UserBackend{
 	}
 
 	authenticateUser(user:any):Promise<AuthenticationResult>{
-		return this.db.select().from('User').where({
-			email: user.username,
+ 		return this.db.select().from('User').where({
+			email: user.email,
 			password:user.password
 		}).all().then((records:any[])=>{
 			if(records.length>0){
@@ -58,7 +58,13 @@ export class UserBackend{
 	
 }
 
-/** Result of the authentication request */
+/** 
+ * Result of the authentication request :
+ * 0:success,
+ * 1=InternalServerError,
+ * 2=Email does not exist,
+ * 3=InvalidUsernameOrPassword
+*/
 export class AuthenticationResult{
 	/** If Successful, the resulting user model is stored in the user field */
 	attempt:number;

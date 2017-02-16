@@ -4,3 +4,6 @@
 	<button [disabled]="!loginForm.form.valid" type="button" (click)="doLogin()">Submit</button>
 </form>
 
+<ng-container *ngIf="invalidUsernameOrPassword">
+	<div>Invalid username or password</div>
+</ng-container>

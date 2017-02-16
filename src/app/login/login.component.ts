@@ -11,6 +11,7 @@ import { UserService } from '../helpers/services/user.service';
 export class LoginComponent implements OnInit {
 
 	attempt:LoginAttempt=new LoginAttempt();
+	invalidUsernameOrPassword=false;
 
 	constructor(
 		private router:Router,
@@ -26,10 +27,14 @@ export class LoginComponent implements OnInit {
 		this.userService.login(this.attempt).subscribe((pass:boolean)=>{
 			console.debug("moving to dashboard");
 			this.router.navigate(["/home/dashboard"]);
-		},(error:Error)=>{
-			console.debug("error "+error);
+		},(error:any)=>{
+			if(error.status==401 && error._body==3){
+				console.log("Invalid username or password");
+				this.invalidUsernameOrPassword=true;
+			}else{
+				console.debug("error "+error);
+			}
 		});
-		return false;
 	}
 
 }

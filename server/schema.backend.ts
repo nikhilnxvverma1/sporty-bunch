@@ -18,9 +18,9 @@ export class SchemaBackend{
 	dropDatabaseSchema():Promise<any>{
 		winston.warn("DROPPING DB UNSAFELY!!!");
 		return this.db.query("DROP CLASS "+LOCATION+" IF EXISTS UNSAFE").
-			then((v:any)=>{
-				return this.db.query("DROP CLASS "+USER+" IF EXISTS UNSAFE")
-			});
+		then((v:any)=>{
+			return this.db.query("DROP CLASS "+USER+" IF EXISTS UNSAFE")
+		});
 	}
 
 	/**

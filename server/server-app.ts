@@ -4,6 +4,7 @@ import https = require('https');
 import path = require('path');
 import ojs = require('orientjs');
 import winston = require('winston');
+import bodyParser = require('body-parser');
 import { UserBackend,statusCodeForLogin,statusCodeForSignup,AuthenticationResult } from './user.backend';
 import { EventBackend } from './event.backend';
 import { SchemaBackend } from './schema.backend';
@@ -24,6 +25,10 @@ export class ServerApp {
 
 	public setRoutes() {        //the order matters here
 
+		this.app.use(bodyParser.json());
+		this.app.use(bodyParser.urlencoded({
+			extended:false
+		}));
 		this.configureAPIRoutes();
 		
 		//static resources (is amongst the main folders in the root of the project)

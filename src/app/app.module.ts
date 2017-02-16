@@ -26,7 +26,7 @@ import { EventService } from './helpers/services/event.service';
 	AppRoutingModule,
 	PostAuthenticationModule
   ],
-  providers: [UserService,Event],
+  providers: [UserService,EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

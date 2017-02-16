@@ -15,7 +15,7 @@ export class UserService {
 		console.debug("posting to server");
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options=new RequestOptions({headers:headers});
-		return this.http.post("/api/post/empty",attempt,options).map((res:Response)=>{return false});
+		return this.http.post("/api/authenticate-user",JSON.stringify(attempt),options).map((res:Response)=>{return false});
 	}
 
 	emptyPost():Observable<boolean>{
