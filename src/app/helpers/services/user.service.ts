@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http,Headers,RequestOptions,Response } from '@angular/http';
 import 'rxjs/Rx';
 import { LoginAttempt } from '../../../models/login-attempt';
+import { Signup } from '../../../models/signup';
 
 @Injectable()
 export class UserService {
@@ -15,7 +16,14 @@ export class UserService {
 		console.debug("posting to server");
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options=new RequestOptions({headers:headers});
-		return this.http.post("/api/authenticate-user",JSON.stringify(attempt),options).map((res:Response)=>{return false});
+		return this.http.post("/api/authenticate-user",JSON.stringify(attempt),options).map((res:Response)=>{return res.json()});
+	}
+
+	signup(signup:Signup):Observable<boolean>{
+		console.debug("posting signup to server");
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options=new RequestOptions({headers:headers});
+		return this.http.post("/api/create-user",JSON.stringify(signup),options).map((res:Response)=>{return res.json()});
 	}
 
 	emptyPost():Observable<boolean>{

@@ -41,7 +41,7 @@ export class ServerApp {
 	private configureAPIRoutes(){
 
 		//create new user
-		this.app.post('/api/user/create-user', (req:express.Request, res:express.Response) => {
+		this.app.post('/api/create-user', (req:express.Request, res:express.Response) => {
 			winston.debug("Attempting to create new user");
 			this.userBackend.checkAndCreateNewUser((<any>req).body).
 			then((attempt:number)=>{
