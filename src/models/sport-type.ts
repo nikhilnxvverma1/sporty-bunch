@@ -7,6 +7,9 @@ export enum SportType{
 	IceHockey=6,
 	Hockey=7,
 	TableTennis=8,
+	LawnTennis=9,
+	Badminton=10,
+	Boxing=11,
 	
 	//TODO add more as needed
 
