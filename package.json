@@ -1,6 +1,7 @@
 {
   "name": "sporty-bunch",
   "version": "0.0.0",
+  "description": "Webapp for people who want to play a common sport together",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
