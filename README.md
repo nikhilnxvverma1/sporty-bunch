@@ -1,6 +1,6 @@
 # Sporty Bunch 
 
-An app allowing people to get together for a sports event
+An app allowing people to get together for a sports event. This is usually the case whenever a team sport needs to be organised and its very hard to gather a group together.
 
 ## Status
 
